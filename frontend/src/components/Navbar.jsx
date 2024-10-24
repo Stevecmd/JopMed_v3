@@ -8,7 +8,7 @@ const Navbar = () => {
 const navigate = useNavigate();
 
 const [showMenu, setShowMenu] = useState(false)
-const [token, setToken] = useState(true) // Login token set to true by default
+const [token, setToken] = useState(true) // Login token default setting
 
   return (
     <div className='flex items-center justify-between text-sm py-4 mb-5 border-b border-b-gray-400'>
@@ -38,7 +38,10 @@ const [token, setToken] = useState(true) // Login token set to true by default
         <div className='flex items-center gap-4'>
             {
                 token 
-                ? <div></div> //logged in
+                ? <div className='flex items-center gap-2 cursor-pointer group relative'>
+                    <img className='w-8 rounded-full' src={assets.profile_pic} alt=''/>
+                    <img className='w-2.5' src={assets.dropdown_icon} alt='' />
+                </div> //logged in
                 : <button onClick={()=>navigate('/login')} className='bg-primary text-white px-8 py-3 rounded-full font-light hidden md:block'>Create Account</button> // Not logged in
             }
             
